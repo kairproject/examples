@@ -10,12 +10,27 @@ cd gym
 pip install -e '.[atari]'
 ```
 
-- Example 1: Easy multiprocessing test.
+- Make cluster using ray
 ```
-python ray_example_npy.py
+# PC1 setting (master)
+ssh kair@192.168.0.104
+>> Enter password
+cd examples/
+ray start --head --redis-port=6379
+
+# PC2 setting 
+ssh [pc2]@[pc2_ip_address]
+>> Enter password
+cd examples/
+ray start --redis-address="192.168.0.104:6379"
 ```
 
-- Example 2: RL worker-like multiprocessing test.
+- Example 1: Easy multiprocessing test
+```
+python ray_example_time.py
+```
+
+- Example 2: RL worker-like multiprocessing test
 ```
 python ray_example_worker.py
 ```
