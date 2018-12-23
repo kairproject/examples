@@ -1,3 +1,8 @@
+"""
+Ray tutorial example.
+https://ray.readthedocs.io/en/latest/tutorial.html
+"""
+
 import time
 
 import numpy as np
@@ -7,6 +12,7 @@ import gym
 
 @ray.remote
 class RayWorker(object):
+    """RL style worker with ray"""
 
     def __init__(self):
         self.w_policy = np.zeros([100, 100])
@@ -45,6 +51,7 @@ class RayWorker(object):
 
 
 class NonRayWorker(object):
+    """RL style worker without ray"""
 
     def __init__(self):
         self.w_policy = np.zeros([100, 100])
@@ -82,11 +89,10 @@ class NonRayWorker(object):
         return self.w_policy
 
 
-def test_multi_workers():
+def test_multi_workers(ip_port, num_cpus):
     # https://github.com/ray-project/ray/blob/master/doc/source/plasma-object-store.rst
-    ray.init(huge_pages=True, plasma_directory="/mnt/hugepages")
+    ray.init(ip_port)
 
-    num_cpus = 7
     num_workers = num_cpus
     num_rollouts = 20
     init_w_policy = np.zeros([100, 100])
@@ -97,6 +103,7 @@ def test_multi_workers():
     rollouts = [worker.do_rollout.remote(init_w_policy, num_rollouts) for
         worker in workers]
     results = ray.get(rollouts)
+    assert len(results) == num_workers
     end = time.time()
     print(f"Parallel workers took {end - start}s")
 
@@ -105,9 +112,13 @@ def test_multi_workers():
     start = time.time()
     rollouts = [worker.do_rollout(init_w_policy, num_rollouts) for
         worker in workers]
+    assert len(results) == num_workers
     end = time.time()
     print(f"Non-parallel workers took {end - start}s")
 
 
 if __name__ == "__main__":
-    test_multi_workers()
+    ip_port = "192.168.0.104:8787"
+    num_cpus = 20
+
+    test_multi_workers(ip_port, num_cpus)

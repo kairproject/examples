@@ -1,9 +1,11 @@
+"""
+Ray tutorial example.
+https://ray.readthedocs.io/en/latest/tutorial.html
+"""
+
 import time
-import numpy as np
 import ray
 
-
-num_cpus = 7
 
 def f1():
     time.sleep(1)
@@ -14,9 +16,9 @@ def f2():
     time.sleep(1)
 
 
-def test_multiprocessing():
+def test_multiprocessing(num_cpus, ip_port):
     # ray initialize
-    ray.init()
+    ray.init(ip_port)
 
     # The following takes {num_cpus} seconds.
     start = time.time()
@@ -32,6 +34,7 @@ def test_multiprocessing():
 
 
 if __name__ == "__main__":
-    values_put = np.random.normal(size=1000)
+    num_cpus = 20
+    ip_port = "192.168.0.104:8787"
 
-    test_multiprocessing()
+    test_multiprocessing(num_cpus, ip_port)
