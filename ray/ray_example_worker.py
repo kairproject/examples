@@ -118,7 +118,7 @@ def test_multi_workers(ip_port, num_cpus):
 
 
 if __name__ == "__main__":
-    ip_port = "192.168.0.104:8787"
+    ip_port = "192.168.0.25:6379"
     num_cpus = 20
 
     test_multi_workers(ip_port, num_cpus)

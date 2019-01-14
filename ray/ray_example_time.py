@@ -35,6 +35,6 @@ def test_multiprocessing(num_cpus, ip_port):
 
 if __name__ == "__main__":
     num_cpus = 20
-    ip_port = "192.168.0.104:8787"
+    ip_port = "192.168.0.25:6379"
 
     test_multiprocessing(num_cpus, ip_port)

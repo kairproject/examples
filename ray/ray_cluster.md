@@ -11,7 +11,7 @@ pip install -e '.[atari]'
 - Setup cluster using ray
 ```
 # PC1 setting (master)
-ssh kair@192.168.0.104
+ssh kair@192.168.0.25
 >> Enter password
 cd examples/
 ray start --head --redis-port=6379
@@ -20,7 +20,7 @@ ray start --head --redis-port=6379
 ssh [pc2]@[pc2_ip_address]
 >> Enter password
 cd examples/
-ray start --redis-address="192.168.0.104:6379"
+ray start --redis-address="192.168.0.25:6379"
 ```
 
 - Example 1: Easy multiprocessing test
