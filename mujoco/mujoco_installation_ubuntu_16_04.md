@@ -23,3 +23,5 @@
 
 ## Issues
 - Python3 [`GLEW initialization error`](https://github.com/openai/mujoco-py/pull/145) 
+- Python2 [`module 'mujoco_py' has no attribute 'load_model_from_path'`](https://github.com/openai/mujoco-py/issues/261)
+- [Compiler Error](https://github.com/openai/mujoco-py/issues/180)
