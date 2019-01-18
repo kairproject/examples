@@ -1,7 +1,6 @@
 # Mujoco Installation 
 
-## Get License
-- Get license from here: https://www.roboti.us/license.html
+## Get License - Get license from here: https://www.roboti.us/license.html
 - Download `mjkey.txt` from email.
 - `cd ./mjkey.txt ~/.mujoco/mjkey.txt`
 
@@ -21,3 +20,6 @@
 - Download [`mjpro150_linux.zip`](https://www.roboti.us/download/mjpro150_linux.zip) and extract
 - `mv ./mjpro150 ~/.mujoco/`
 - `pip install mujoco-py`
+
+## Issues
+- Python3 [`GLEW initialization error`](https://github.com/openai/mujoco-py/pull/145) 
