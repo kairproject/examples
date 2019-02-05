@@ -1,4 +1,4 @@
-# Mujoco Installation 
+# MuJoCo Installation 
 
 ## Get License - Get license from [here](https://www.roboti.us/license.html)
 - Download `mjkey.txt` from email.
