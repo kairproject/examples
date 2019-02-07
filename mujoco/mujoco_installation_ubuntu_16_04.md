@@ -2,7 +2,7 @@
 
 ## Get License - Get license from [here](https://www.roboti.us/license.html)
 - Download `mjkey.txt` from email.
-- `cd ./mjkey.txt ~/.mujoco/mjkey.txt`
+- `cp ./mjkey.txt ~/.mujoco/mjkey.txt`
 
 ## Gym Installation
 - `git clone https://github.com/openai/gym`
@@ -25,3 +25,4 @@
 - Python3 [`GLEW initialization error`](https://github.com/openai/mujoco-py/pull/145) 
 - Python2 [`module 'mujoco_py' has no attribute 'load_model_from_path'`](https://github.com/openai/mujoco-py/issues/261)
 - [Compiler Error](https://github.com/openai/mujoco-py/issues/180)
+- [fatal error: GL/osmesa.h](https://github.com/openai/mujoco-py/issues/90)
